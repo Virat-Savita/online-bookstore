@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>{{ title }}</title>
+
+    <style>
+
+        body{
+            margin:0;
+            background:#111;
+            color:white;
+            font-family: Arial;
+        }
+
+        .top{
+            background:black;
+            padding:10px;
+        }
+
+        iframe{
+            width:100%;
+            height:95vh;
+            border:none;
+        }
+
+        a{
+            color:cyan;
+            text-decoration:none;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="top">
+<a href="/">⬅ Back</a> | {{ title }}
+</div>
+
+<iframe src="{{ link }}"></iframe>
+
+</body>
+</html>

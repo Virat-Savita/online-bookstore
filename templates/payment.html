@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div style="text-align:center; margin-top:50px;">
+
+<h2>Payment Page</h2>
+
+<p>Book: {{ book }}</p>
+
+<a href="/pay/{{ book }}">
+<button>Pay Now</button>
+</a>
+
+</div>
+
+{% endblock %}

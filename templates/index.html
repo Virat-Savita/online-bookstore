@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<!-- HERO -->
+
+<div class="hero">
+
+    <h1 class="typing">
+        Welcome to Online Bookstore
+    </h1>
+
+    <img 
+    src="{{ url_for('static', filename='images/banner.jpg') }}" 
+    class="small-banner">
+
+</div>
+
+
+
+<!-- CATEGORY BAR -->
+
+<div class="category-bar">
+
+<a href="/category/selfhelp">Self Help</a>
+<a href="/category/romance">Romance</a>
+<a href="/category/business">Business</a>
+<a href="/category/hindi">Hindi</a>
+<a href="/category/kids">Kids</a>
+<a href="/category/manga">Manga</a>
+
+</div>
+
+
+
+<!-- BOOK LIST -->
+
+<div class="books">
+
+{% for book in books %}
+
+<div class="card">
+
+<h3>{{ book.name }}</h3>
+
+
+<div class="btn-group">
+
+<a href="/read/{{ book.pdf }}">
+<button class="read-btn">
+Read PDF
+</button>
+</a>
+
+
+<a href="/buy/{{ book.name }}">
+<button class="buy-btn">
+Buy Book
+</button>
+</a>
+
+</div>
+
+
+</div>
+
+{% endfor %}
+
+</div>
+
+
+{% endblock %}

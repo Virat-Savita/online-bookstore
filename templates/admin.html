@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+
+    <div class="sidebar">
+
+        <h2>Admin</h2>
+
+        <a class="active">Dashboard</a>
+        <a>Upload Book</a>
+        <a>Books</a>
+
+    </div>
+
+
+
+    <div class="main-area">
+
+
+        <!-- STATS -->
+
+        <div class="stats">
+
+            <div class="stat-card">
+                <h3>Total Books</h3>
+                <p>{{ books|length }}</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Users</h3>
+                <p>1</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Files</h3>
+                <p>{{ books|length }}</p>
+            </div>
+
+        </div>
+
+
+
+        <!-- Upload -->
+
+        <div class="admin-panel">
+
+            <h2>Upload Book</h2>
+
+            <form method="POST" enctype="multipart/form-data">
+
+                <input
+                type="text"
+                name="name"
+                placeholder="Book name"
+                required>
+
+                <input
+                type="file"
+                name="pdf"
+                required>
+
+                <button type="submit">
+                    Upload
+                </button>
+
+            </form>
+
+        </div>
+
+
+
+        <!-- TABLE -->
+
+        <div class="book-panel">
+
+            <h2>Uploaded Books</h2>
+
+            <table class="book-table">
+
+                <tr>
+                    <th>Name</th>
+                    <th>Read</th>
+                    <th>Delete</th>
+                </tr>
+
+                {% for book in books %}
+
+                <tr>
+
+                    <td>{{ book.name }}</td>
+
+                    <td>
+                        <a href="/read/{{ book.pdf }}">
+                            <button class="read-btn">
+                                Read
+                            </button>
+                        </a>
+                    </td>
+
+                    <td>
+                        <button class="delete-btn">
+                            Delete
+                        </button>
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </table>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+{% endblock %}
